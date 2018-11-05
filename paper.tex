@@ -55,10 +55,9 @@
 \newcommand{\inset}[1]{\textcolor{green!50!black}{#1}}
 \begin{document}
 
-\title{Electrodynamics of 2D phonon polaritons from first principles}
+\title{Theory of interactions between matter and optical phonons in two dimensions}
 
-\author{Nicholas Rivera$^\perp$}\email{nrivera@seas.harvard.edu}\affiliation{\HarvardSEAS}\affiliation{\MITPhy}
-\author{Jennifer Coulter$^\perp$}\affiliation{\HarvardSEAS}
+\author{Nicholas Rivera}\email{nrivera@seas.harvard.edu}\affiliation{\HarvardSEAS}\affiliation{\MITPhy}
 \author{Thomas Christensen}\affiliation{\MITPhy}
 \author{Prineha Narang}\email{prineha@seas.harvard.edu}\affiliation{\HarvardSEAS}
 
@@ -66,116 +65,124 @@
 \date{\today}
 
 \begin{abstract}
-The ability to use photonic quasiparticles to control electromagnetic energy far below the diffraction limit is a defining paradigm in nanophotonics. An important recent development in this field is the measurement and manipulation of extremely confined phonon-polariton modes in polar dielectrics such as silicon carbide and hexagonal boron nitride, which pave the way for nanophotonics and extreme light-matter interactions in the mid-IR to THz frequency range. To further advance this promising field, it is of great interest to predict the optical response of 2D polaritonic materials. Here we develop a unified framework based on quantum linear response theory to calculate the spatially non-local dielectric function of a polar lattice in arbitrary dimensions. Our results also allow us, for the first time, to derive the dielectric function of phonon polaritons in a monolayer, which may also be specified in terms of the same \emph{ab initio}-derived parameters of the underlying lattice. Finally, to show the generality of the framework developed here, we derive the electrodynamics of two-dimensional phonon polaritons, finding a universal form for their electromagnetic modes and dispersion relation, which can be specified in terms of \emph{ab initio} parameters.
+Extreme confinement of electromagnetic energy by phonon polaritons promises extremely strong and novel forms of control over the dynamics of matter. To bring such control to its ultimate limit, it is important to consider phonon polaritons in two dimensional systems. However, recent studies have pointed out that in two-dimensional systems, splitting between longitudinal and transverse (LO and TO) optical phonons, which is necessary for the existence of phonon polaritons in three dimensions, is absent.  The question then arises as to whether the ability to exploit optical phonons disappears in lower dimensions. Here, we settle this question, finding that the phonon-polariton of the bulk is essentially replaced by the LO phonon. We present the confinement and propagation losses of LO phonons. We then calculate various measures of strong light-matter interaction such as single and two-photon spontaneous emission enhancement, and discuss methods such as EELS to probe these excitations.
 \end{abstract}
 
 \maketitle
 
-Phonon polaritons, hybrid quasiparticles of photons and optical phonons, offer great promise for deeply sub-diffractional control of electromagnetic fields at mid-IR and THz frequencies. Phonon polaritons share many features in common with plasmon polaritons in conductors. In recent years, it has been shown that phonon polaritons enable confinement of light to volumes over $10^6$ times smaller than that of a diffraction-limited photon in free-space\cite{caldwell2013low,xu2014mid,caldwell2014sub,dai2014tunable,tomadin2015accessing,yoxall2015direct,li2015hyperbolic,dai2015subdiffractional,dai2015graphene,caldwell2015low,li2016reversible,Basov:2016,basov2017towards,low2017polaritons,giles2017ultra}. Due to this remarkable confinement and their relatively high lifetimes of around picoseconds, phonon polaritons open new opportunities for vibrational spectroscopy, radiative heat transfer \cite{hillenbrand2002phonon}, and control of dynamics in quantum emitters \cite{kumar2015tunable,rivera2017making,kurman2018control}. The core features of phonon polaritons, such as mode shape, confinement, and propagation characteristics, are understood from simple Lorentz oscillator models of the dielectric function, enabling successful theoretical accounts of experimental observations.
+\section{Electrodynamics of optical phonons in two-dimensions}
 
-we develop a first-principles theory of phonon polaritons in a 2D polar material, specifying the dielectric function in terms of \emph{ab initio} parameters, and finding a universal form for the dispersion relation of 2D phonon polaritons when the wavevector is much smaller than the size of the unit cell.
-
-\
-\section{Linear response of phonon polaritons in two dimensions}
-We now move to generalize the derivation of the previous section to describe the optical phonon contribution to Maxwell's equations coming from a two-dimensional material. 
-Unlike the previous section, we will not demonstrate the results of the calculation on a particular material.
-Here, we are only interested in finding an expression for the optical response of the surface in terms of \emph{ab initio}-derivable parameters, as well as the general form of the dispersion relation of phonon-polaritons in 2D.
-Because of the change of symmetry in the system, we will not be able to perform the analysis by Fourier transforming Maxwell's equations in three dimensions.
-However, we will apply a technique which is often used to analyze electromagnetic modes in 2D systems such as plasmons in 2D conductors.
-An example of the technique is shown in detail in Ref.~\citenum{jablan2009plasmonics}, but we summarize the essential details here. 
-
-Consider a two-dimensional ionic lattice located in the $xy$ plane ($z=0$) surrounded by a homogeneous environment of dielectric function $\epsilon_{\mathrm{env}}$.
-We consider the simplified case where the lattice is free-standing, to show the essential concept.
-We search for a mode whose magnetic field $\mathbf{H}$ is of the form $\mathbf{H}(z)\e^{\iu\mathbf{q}\cdot\mathbf{r}_{\parallel} - \iu\omega t}$, where $\mathbf{r}_{\parallel}=(x,y,0)$ is the position in the plane, $\mathbf{q}$ is the wavevector and $\omega_{\mathbf{q}}$ is the frequency.
-To simplify the discussion even further and furnish analytical forms for the phonon-polariton modes in 2D, we assume this material has mirror symmetry along the axis of $\mathbf{q}$.
-In this case, the electromagnetic modes can be decomposed into TE and TM-polarized modes.
-As is typical in the study of highly-confined polaritons, whether they are plasmon or phonon polaritons, the TM mode is the highly confined one, and occurs when $\epsilon(\omega) < 0$.
-In our convention, the TM mode is such that $\mathbf{H}$ is in the plane of the lattice and perpendicular to $\mathbf{q}$. 
-Without loss of generality, define the $\mathbf{q}$ direction to be the $x$ direction, making the magnetic field in the $y$ direction.
-	
-
-For $z \neq 0$, the Maxwell equation for the magnetic field is $(\nabla\times\nabla\times - \epsilon_{\mathrm{env}}\frac{\omega^2}{c^2})\mathbf{H}(z)\e^{\iu\mathbf{q}\cdot\mathbf{r}_{\parallel}} = 0$.
-For the TM polarized mode, $\mathbf{H}(z) = H(z)\unitvec{y}$; the vectorial wave equation consequently simplifies to a scalar one
-\begin{equation}\label{eq:2dmaxwell}
-\left(-\frac{\dd^2}{\dd{}z^2}+q^2-\epsilon_{\mathrm{env}}\frac{\omega^2}{c^2} \right)H(z) = 0.
-\end{equation}
-Seeking a surface-bound mode, $H(z)$ must assume the functional form
-	\comment{tc}{Nick, please check (I reverted an earlier edit of mine of this to the stuff below, but I cannot make sense of it): how can we specify $H(z)$ by equality sign here; and then in the following paragraphs we say ``To join these two solutions consistently, we apply \ldots$\unitvec{z}\times(\mathbf{H}^{(+)}-\mathbf{H}^{(-)}) = \mathbf{K} = -\iu\omega\mathbf{P}_{\mathrm{s}}$''?. I cannot make sense of this given that we use equality signs here and that $\mathbf{H}(z) = H(z)\unitvec{y}$.}
-\begin{align}
-	H(z) = \sgn(z)\e^{-\kappa |z|},
-\end{align}
-with $\kappa \equiv \sqrt{q^2-\epsilon_{\mathrm{env}}\frac{\omega^2}{c^2}}$.
-
-To join these two solutions consistently, we apply the interface conditions for the magnetic field. They are $\unitvec{z}\times(\mathbf{H}^{(+)}-\mathbf{H}^{(-)}) = \mathbf{K} = -\iu\omega\mathbf{P}_{\mathrm{s}}$ where $\mathbf{K}$ is the surface current density, expressed through the surface polarization density $\mathbf{P}_{\mathrm{s}}$. 
-Now we use the linear response relation $\mathbf{P}(\mathbf{q},\omega) = \boldsymbol{\Pi}(\mathbf{q},\omega)\mathbf{E}(\mathbf{q},\omega)$ in addition to Ampere's law $\nabla\times\mathbf{H} = -\iu\omega\epsilon_{\mathrm{env}}\mathbf{E}$.
-	\comment{tc}{There's a slight disconnect in that we never define the relation between $\mathbf{P}_{\mathrm{s}}$ and $\mathbf{P}$. Also, there's a bigger issue, I think: if we allow $\boldsymbol{\Pi}$ to be a $3\times 3$ matrix, then we ought to adopt more generic boundary conditions. Specifically, if there's out-of-plane ``current'', then the boundary conditions for normal parts of $\mathbf{B}$ and parallel parts of $\mathbf{E}$ would change.}
-Plugging these relations in yields an implicit equation connecting the polarization response function, the frequency of the 2D phonon polariton, and its frequency. Taking the case where $x$ coincides with a principal axis of the system, we have that 
-\begin{equation}\label{eq:2ddispersion}
-q\Pi_{xx}(q,\omega)  = -2\epsilon_{\mathrm{env}}.
-\end{equation}
-
-To connect this relation to the discussion of the 3D case, we write a microscopic form for the polarization response function of the ionic lattice. It is simply
-\begin{equation}\label{eq:2dsusceptibility}
-\boldsymbol{\Pi}(\mathbf{q},\omega) =  \frac{1}{\epsilon_0 A}\sum\limits_{m,n}\frac{\mathbf{P}_{mn}(\mathbf{q})\otimes\mathbf{P}_{nm}(\mathbf{q})}{\hbar\omega + E_{nm}+\iu 0^+}\left(\e^{\beta E_m}-\e^{\beta E_n} \right),
-\end{equation}
-is the 2D Fourier transform of the polarization density. As the form of the displacement of the ions is still given by Equation~\eqref{eq:phononfield}, $\mathbf{P}_{mn}(\mathbf{q})$ is still given by Equations~(\ref{eq:fourierpolarization}--\ref{eq:oscillatorstrength}), but with the Born charges and eigendisplacements appropriate to the 2D system of interest. Note that although the lattice is two dimensional, in general, the ions may be displaced in any three directions and thus $\boldsymbol{\Pi}$ is still a $3\times3$ matrix.
-Following the same kind of reasoning that lead to Equation~\eqref{eq:lorentzoscillator}, if we parameterize the effect of the different masses and Born charges in the unit cell by $M_{\mathrm{eff}}$ and $Q_{\mathrm{eff}}$, we will find a form for the polarization response function which is given by the second term of Equation~\eqref{eq:lorentzoscillator} but with $V$ replaced by $A$. Defining $N/A \equiv n_{\mathrm{s}}$, Equation~\eqref{eq:2dmaxwell} for the dispersion relation of 2D phonon polaritons tells us that
-\begin{equation}\label{eq:2dphononpolaritondispersion}
-\omega = \sqrt{\omega_{\mathrm{TO}}^2+\frac{n_{\mathrm{s}}Q_{\mathrm{eff}}^{2}}{2M_{\mathrm{eff}}\epsilon_0\epsilon_{\mathrm{env}}}q}.
-\end{equation}
-Note that this dispersion has a strong resemblance to the plasmon dispersion relation of two-dimensional free electron gases, which is  $\omega = \sqrt{n_{\mathrm{s}}e^2q/2m\epsilon_0\epsilon_{\mathrm{env}}}$  in the local limit~\cite{stern1967polarizability}.
-The only difference is the replacement of electron parameters (density, charge, mass) by the corresponding lattice parameters in the phononic case, and a shift in the minimum frequency by the transverse optical phonon frequency. 
-
-We note that the dispersion relation of Equation~\eqref{eq:2dphononpolaritondispersion} can in fact be obtained by taking the infinitely thin-limit of a bulk polar dielectric, and finding the dispersion of the resulting phonon polaritons in the quasi-electrostatic limit.
-In particular, for an isotropic polar dielectric of thickness $2d$ with boundaries at $z=\pm d$, solving Laplace's equations yields as the dispersion of the even parity mode:
-\begin{equation}\label{eq:thinfilmphononpolaritondispersion}
-\tanh(qd) = -\frac{\epsilon_{\mathrm{env}}}{\epsilon(\omega)} \rightarrow qd\epsilon(\omega) = -\epsilon_{\mathrm{env}},
-\end{equation}
-with $\epsilon_{\mathrm{env}}$ the dielectric constant of the surrounding environment and $\epsilon(\omega)$ that of the polar dielectric.
-The right-hand side is obtained in the limit of $d\rightarrow 0$.
-Taking Equation~\eqref{eq:lorentzoscillator} for the dielectric function in bulk, we have that (in the absence of losses) $\epsilon_{\mathrm{env}} + qd\epsilon_{\infty} + q\frac{n_sQ_{\mathrm{eff}}^{2}}{2\epsilon_0 M_{\mathrm{eff}}}\frac{1}{\omega_{\mathrm{TO}}^2-\omega^2} = 0$, where we have identified $V = 2Ad$.
-In the limit of small $d$, i.e., $qd \ll 1$, we recover Equations~\eqref{eq:2ddispersion} and \eqref{eq:2dphononpolaritondispersion} with $\Pi = \frac{n_sQ_{\mathrm{eff}}^{2}}{\epsilon_0 M}\frac{1}{\omega^2_{\mathrm{TO}}-\omega^2}$. It is interesting to see that in the 2D limit, the effect of the screening inside the material altogether vanishes. A similar phenomenon is known in the electrodynamics of plasmons in 2D materials, where the dielectric screening is known to be entirely provided by the environment and is equal to $\epsilon_{\mathrm{env}}$. A useful result which follows is that we may also derive another important figure of merit, the $p$-polarized reflectivity of a 2D polar dielectric, which is related to the local density of states of the polar dielectric, which quantifies the strength of coupling to external probes such as a nano-antenna or a quantum emitter.
-By considering the infinitely thin limit of a polar dielectric with dielectric function $\epsilon(\omega)$ and defining $\epsilon(\omega) = \Pi/2d$, we immediately find that the $p$-polarized reflectivity is given by
-\begin{equation}\label{eq:2dtmreflectivity}
-r_p = \frac{1}{1+2\epsilon_{\mathrm{env}}/q\Pi}.
-\end{equation}
-
-We note that, in general, when considering bulk and 2D versions of a material, at the very least, the effective parameters $Q_{\mathrm{eff}}$ and $M_{\mathrm{eff}}$ will change as a result of changes to the phonon band structure. In other words, although the forms of the expressions for the dielectric function 
+In this section, we develop the theory of electromagnetic waves associated with optical phonons in two dimensions. A theory of electromagnetic waves in polar 2D materials involves first calculating the dielectric permittivity associated with the monolayer. 
 
 
- It is also quite possible that they altogether vanish in the 2D case as opposed to the 3D case. As a recently discovered example of such a phenomenon, it was found that the LO-TO splitting of some 2D polar dielectrics, such as hBN \cite{sohier2017breakdown} altogether vanishes, and only returns to its bulk value after a small but finite wavevector. This would then suggest that a description of phonon polaritons necessitates consideration of the spatially nonlocal dielectric function as in Equation (12), and that these polaritons moreover may only exist when their wavelengths are sufficiently short. Another important change, beyond the theory presented in this work is that the losses may also change drastically in the reduction of dimensions. For example, it was found in several experiments that the damping rate of the TO phonon in hBN nearly doubles upon going from bulk to 2D\cite{gorbachev2011hunting,tran2016quantum}, which may strongly suppress the ability to image the polariton with near-field probes.
-%This is due to the small thickness where the dispersion of the phonon polariton is quite flat, and very high wavevector modes, corresponding to the maximum wavevector detectable by a near-field tip, occur at frequencies very close to the TO phonon frequency.
-%Near the TO phonon-frequency however, the ratio $\Im\Pi/\Re\Pi$ is the highest, corresponding to very low quality-factor modes.
-%In addition to these considerations, the values of the parameters may depend on the background material, which may change the phonon band structure. 
+\section{Strong light-matter interactions enabled by 2D optical phonons}
 
+\subsection{Spontaneous emission}
 
-We provided this thin-film derivation as a simple way to understand the content of Equations~\eqref{eq:2ddispersion} and \eqref{eq:2dphononpolaritondispersion}.
-In general Equation~\eqref{eq:2dsusceptibility} should be used to calculate $\Pi$ and the corresponding dispersion.
-We note that a similar situation appears in the treatment of 2D plasmons: namely that a relation like Equation~\eqref{eq:2ddispersion} appears, except with $\Pi$ the polarization-polarization response of a 2D electron gas.
-And furthermore that one can also obtain the same equation by considering the ultra-thin limit of a 3D plasmonic material \cite{jablan2009plasmonics,jablan2013plasmons}.
+\subsection{Spontaneous and stimulated electron energy loss}
 
-
-\section{Summary and Outlook}
-
-In summary, we have provided a theoretical framework based on linear response theory to calculate the phonon contribution to the dielectric function from first principles.
-Our framework is rather versatile, allowing us to: use first principles calculations to get the dielectric function, predict how nonlocality enters the dielectric function, and predict the effect of reduced dimensionality.
-A particularly interesting case to consider in future work would be to find a system where the optical phonons are drastically different from 3D to 2D.
-Perhaps it is possible that there are some materials in which the 2D optical phonons experience lower losses due to a reduced scattering phase space.
-The formalism we provide here may also be extended to understand phonon-polaritons in other more atypical reduced-dimensional settings, such as zero-dimensional settings in single emitters, i.e., `molecular phonon polaritons', in analogy to recent work on `molecular plasmons' \cite{manjavacas2013tunable,lauchner2015molecular}.
-Notably, we go beyond oversimplifications of the Lorentz oscillator model in which the Born charges are treated as a single scalar quantity and can treat the influence and interplay of many phonon modes that contribute to the dielectric function.
-We corroborated our approach through density functional theoretic calculations.
-
-In future work, besides furnishing an \emph{ab initio} description of nonlocality and reduced-dimension phonon polaritons, there are a number of interesting questions that can be addressed by the framework provided here.
-For example, we may consider situations such as the phonon polaritons associated with optical phonons at the interface of two materials.
-Another system of interest would be to consider two nearby layers of material in which the optical phonons of each material strongly couple to each other. 
-In that case, it would be relevant to evaluate how this strong coupling manifests itself in the infrared dielectric function, and ultimately the confinement and propagation of the phonon polaritons.
+%%Phonon polaritons, hybrid quasiparticles of photons and optical phonons, offer great promise for deeply sub-diffractional control of electromagnetic fields at mid-IR and THz frequencies. Phonon polaritons share many features in common with plasmon polaritons in conductors. In recent years, it has been shown that phonon polaritons enable confinement of light to volumes over $10^6$ times smaller than that of a diffraction-limited photon in free-space\cite{caldwell2013low,xu2014mid,caldwell2014sub,dai2014tunable,tomadin2015accessing,yoxall2015direct,li2015hyperbolic,dai2015subdiffractional,dai2015graphene,caldwell2015low,li2016reversible,Basov:2016,basov2017towards,low2017polaritons,giles2017ultra}. Due to this remarkable confinement and their relatively high lifetimes of around picoseconds, phonon polaritons open new opportunities for vibrational spectroscopy, radiative heat transfer \cite{hillenbrand2002phonon}, and control of dynamics in quantum emitters \cite{kumar2015tunable,rivera2017making,kurman2018control}. The core features of phonon polaritons, such as mode shape, confinement, and propagation characteristics, are understood from simple Lorentz oscillator models of the dielectric function, enabling successful theoretical accounts of experimental observations.
+%
+%%we develop a first-principles theory of phonon polaritons in a 2D polar material, specifying the dielectric function in terms of \emph{ab initio} parameters, and finding a universal form for the dispersion relation of 2D phonon polaritons when the wavevector is much smaller than the size of the unit cell.
+%
+%\
+%%\section{Linear response of phonon polaritons in two dimensions}
+%%We now move to generalize the derivation of the previous section to describe the optical phonon contribution to Maxwell's equations coming from a two-dimensional material. 
+%%Unlike the previous section, we will not demonstrate the results of the calculation on a particular material.
+%Here, we are only interested in finding an expression for the optical response of the surface in terms of \emph{ab initio}-derivable parameters, as well as the general form of the dispersion relation of phonon-polaritons in 2D.
+%Because of the change of symmetry in the system, we will not be able to perform the analysis by Fourier transforming Maxwell's equations in three dimensions.
+%However, we will apply a technique which is often used to analyze electromagnetic modes in 2D systems such as plasmons in 2D conductors.
+%An example of the technique is shown in detail in Ref.~\citenum{jablan2009plasmonics}, but we summarize the essential details here. 
+%
+%%Consider a two-dimensional ionic lattice located in the $xy$ plane ($z=0$) surrounded by a homogeneous environment of dielectric function $\epsilon_{\mathrm{env}}$.
+%We consider the simplified case where the lattice is free-standing, to show the essential concept.
+%We search for a mode whose magnetic field $\mathbf{H}$ is of the form $\mathbf{H}(z)\e^{\iu\mathbf{q}\cdot\mathbf{r}_{\parallel} - \iu\omega t}$, where $\mathbf{r}_{\parallel}=(x,y,0)$ is the position in the plane, $\mathbf{q}$ is the wavevector and $\omega_{\mathbf{q}}$ is the frequency.
+%To simplify the discussion even further and furnish analytical forms for the phonon-polariton modes in 2D, we assume this material has mirror symmetry along the axis of $\mathbf{q}$.
+%In this case, the electromagnetic modes can be decomposed into TE and TM-polarized modes.
+%As is typical in the study of highly-confined polaritons, whether they are plasmon or phonon polaritons, the TM mode is the highly confined one, and occurs when $\epsilon(\omega) < 0$.
+%In our convention, the TM mode is such that $\mathbf{H}$ is in the plane of the lattice and perpendicular to $\mathbf{q}$. 
+%Without loss of generality, define the $\mathbf{q}$ direction to be the $x$ direction, making the magnetic field in the $y$ direction.
+%	
+%
+%For $z \neq 0$, the Maxwell equation for the magnetic field is $(\nabla\times\nabla\times - \epsilon_{\mathrm{env}}\frac{\omega^2}{c^2})\mathbf{H}(z)\e^{\iu\mathbf{q}\cdot\mathbf{r}_{\parallel}} = 0$.
+%For the TM polarized mode, $\mathbf{H}(z) = H(z)\unitvec{y}$; the vectorial wave equation consequently simplifies to a scalar one
+%\begin{equation}\label{eq:2dmaxwell}
+%\left(-\frac{\dd^2}{\dd{}z^2}+q^2-\epsilon_{\mathrm{env}}\frac{\omega^2}{c^2} \right)H(z) = 0.
+%\end{equation}
+%Seeking a surface-bound mode, $H(z)$ must assume the functional form
+%	\comment{tc}{Nick, please check (I reverted an earlier edit of mine of this to the stuff below, but I cannot make sense of it): how can we specify $H(z)$ by equality sign here; and then in the following paragraphs we say ``To join these two solutions consistently, we apply \ldots$\unitvec{z}\times(\mathbf{H}^{(+)}-\mathbf{H}^{(-)}) = \mathbf{K} = -\iu\omega\mathbf{P}_{\mathrm{s}}$''?. I cannot make sense of this given that we use equality signs here and that $\mathbf{H}(z) = H(z)\unitvec{y}$.}
+%\begin{align}
+%	H(z) = \sgn(z)\e^{-\kappa |z|},
+%\end{align}
+%with $\kappa \equiv \sqrt{q^2-\epsilon_{\mathrm{env}}\frac{\omega^2}{c^2}}$.
+%
+%To join these two solutions consistently, we apply the interface conditions for the magnetic field. They are $\unitvec{z}\times(\mathbf{H}^{(+)}-\mathbf{H}^{(-)}) = \mathbf{K} = -\iu\omega\mathbf{P}_{\mathrm{s}}$ where $\mathbf{K}$ is the surface current density, expressed through the surface polarization density $\mathbf{P}_{\mathrm{s}}$. 
+%Now we use the linear response relation $\mathbf{P}(\mathbf{q},\omega) = \boldsymbol{\Pi}(\mathbf{q},\omega)\mathbf{E}(\mathbf{q},\omega)$ in addition to Ampere's law $\nabla\times\mathbf{H} = -\iu\omega\epsilon_{\mathrm{env}}\mathbf{E}$.
+%	\comment{tc}{There's a slight disconnect in that we never define the relation between $\mathbf{P}_{\mathrm{s}}$ and $\mathbf{P}$. Also, there's a bigger issue, I think: if we allow $\boldsymbol{\Pi}$ to be a $3\times 3$ matrix, then we ought to adopt more generic boundary conditions. Specifically, if there's out-of-plane ``current'', then the boundary conditions for normal parts of $\mathbf{B}$ and parallel parts of $\mathbf{E}$ would change.}
+%Plugging these relations in yields an implicit equation connecting the polarization response function, the frequency of the 2D phonon polariton, and its frequency. Taking the case where $x$ coincides with a principal axis of the system, we have that 
+%\begin{equation}\label{eq:2ddispersion}
+%q\Pi_{xx}(q,\omega)  = -2\epsilon_{\mathrm{env}}.
+%\end{equation}
+%
+%To connect this relation to the discussion of the 3D case, we write a microscopic form for the polarization response function of the ionic lattice. It is simply
+%\begin{equation}\label{eq:2dsusceptibility}
+%\boldsymbol{\Pi}(\mathbf{q},\omega) =  \frac{1}{\epsilon_0 A}\sum\limits_{m,n}\frac{\mathbf{P}_{mn}(\mathbf{q})\otimes\mathbf{P}_{nm}(\mathbf{q})}{\hbar\omega + E_{nm}+\iu 0^+}\left(\e^{\beta E_m}-\e^{\beta E_n} \right),
+%\end{equation}
+%is the 2D Fourier transform of the polarization density. As the form of the displacement of the ions is still given by Equation~\eqref{eq:phononfield}, $\mathbf{P}_{mn}(\mathbf{q})$ is still given by Equations~(\ref{eq:fourierpolarization}--\ref{eq:oscillatorstrength}), but with the Born charges and eigendisplacements appropriate to the 2D system of interest. Note that although the lattice is two dimensional, in general, the ions may be displaced in any three directions and thus $\boldsymbol{\Pi}$ is still a $3\times3$ matrix.
+%Following the same kind of reasoning that lead to Equation~\eqref{eq:lorentzoscillator}, if we parameterize the effect of the different masses and Born charges in the unit cell by $M_{\mathrm{eff}}$ and $Q_{\mathrm{eff}}$, we will find a form for the polarization response function which is given by the second term of Equation~\eqref{eq:lorentzoscillator} but with $V$ replaced by $A$. Defining $N/A \equiv n_{\mathrm{s}}$, Equation~\eqref{eq:2dmaxwell} for the dispersion relation of 2D phonon polaritons tells us that
+%\begin{equation}\label{eq:2dphononpolaritondispersion}
+%\omega = \sqrt{\omega_{\mathrm{TO}}^2+\frac{n_{\mathrm{s}}Q_{\mathrm{eff}}^{2}}{2M_{\mathrm{eff}}\epsilon_0\epsilon_{\mathrm{env}}}q}.
+%\end{equation}
+%Note that this dispersion has a strong resemblance to the plasmon dispersion relation of two-dimensional free electron gases, which is  $\omega = \sqrt{n_{\mathrm{s}}e^2q/2m\epsilon_0\epsilon_{\mathrm{env}}}$  in the local limit~\cite{stern1967polarizability}.
+%The only difference is the replacement of electron parameters (density, charge, mass) by the corresponding lattice parameters in the phononic case, and a shift in the minimum frequency by the transverse optical phonon frequency. 
+%
+%We note that the dispersion relation of Equation~\eqref{eq:2dphononpolaritondispersion} can in fact be obtained by taking the infinitely thin-limit of a bulk polar dielectric, and finding the dispersion of the resulting phonon polaritons in the quasi-electrostatic limit.
+%In particular, for an isotropic polar dielectric of thickness $2d$ with boundaries at $z=\pm d$, solving Laplace's equations yields as the dispersion of the even parity mode:
+%\begin{equation}\label{eq:thinfilmphononpolaritondispersion}
+%\tanh(qd) = -\frac{\epsilon_{\mathrm{env}}}{\epsilon(\omega)} \rightarrow qd\epsilon(\omega) = -\epsilon_{\mathrm{env}},
+%\end{equation}
+%with $\epsilon_{\mathrm{env}}$ the dielectric constant of the surrounding environment and $\epsilon(\omega)$ that of the polar dielectric.
+%The right-hand side is obtained in the limit of $d\rightarrow 0$.
+%Taking Equation~\eqref{eq:lorentzoscillator} for the dielectric function in bulk, we have that (in the absence of losses) $\epsilon_{\mathrm{env}} + qd\epsilon_{\infty} + q\frac{n_sQ_{\mathrm{eff}}^{2}}{2\epsilon_0 M_{\mathrm{eff}}}\frac{1}{\omega_{\mathrm{TO}}^2-\omega^2} = 0$, where we have identified $V = 2Ad$.
+%In the limit of small $d$, i.e., $qd \ll 1$, we recover Equations~\eqref{eq:2ddispersion} and \eqref{eq:2dphononpolaritondispersion} with $\Pi = \frac{n_sQ_{\mathrm{eff}}^{2}}{\epsilon_0 M}\frac{1}{\omega^2_{\mathrm{TO}}-\omega^2}$. It is interesting to see that in the 2D limit, the effect of the screening inside the material altogether vanishes. A similar phenomenon is known in the electrodynamics of plasmons in 2D materials, where the dielectric screening is known to be entirely provided by the environment and is equal to $\epsilon_{\mathrm{env}}$. A useful result which follows is that we may also derive another important figure of merit, the $p$-polarized reflectivity of a 2D polar dielectric, which is related to the local density of states of the polar dielectric, which quantifies the strength of coupling to external probes such as a nano-antenna or a quantum emitter.
+%By considering the infinitely thin limit of a polar dielectric with dielectric function $\epsilon(\omega)$ and defining $\epsilon(\omega) = \Pi/2d$, we immediately find that the $p$-polarized reflectivity is given by
+%\begin{equation}\label{eq:2dtmreflectivity}
+%r_p = \frac{1}{1+2\epsilon_{\mathrm{env}}/q\Pi}.
+%\end{equation}
+%
+%We note that, in general, when considering bulk and 2D versions of a material, at the very least, the effective parameters $Q_{\mathrm{eff}}$ and $M_{\mathrm{eff}}$ will change as a result of changes to the phonon band structure. In other words, although the forms of the expressions for the dielectric function 
+%
+%
+% It is also quite possible that they altogether vanish in the 2D case as opposed to the 3D case. As a recently discovered example of such a phenomenon, it was found that the LO-TO splitting of some 2D polar dielectrics, such as hBN \cite{sohier2017breakdown} altogether vanishes, and only returns to its bulk value after a small but finite wavevector. This would then suggest that a description of phonon polaritons necessitates consideration of the spatially nonlocal dielectric function as in Equation (12), and that these polaritons moreover may only exist when their wavelengths are sufficiently short. Another important change, beyond the theory presented in this work is that the losses may also change drastically in the reduction of dimensions. For example, it was found in several experiments that the damping rate of the TO phonon in hBN nearly doubles upon going from bulk to 2D\cite{gorbachev2011hunting,tran2016quantum}, which may strongly suppress the ability to image the polariton with near-field probes.
+%%This is due to the small thickness where the dispersion of the phonon polariton is quite flat, and very high wavevector modes, corresponding to the maximum wavevector detectable by a near-field tip, occur at frequencies very close to the TO phonon frequency.
+%%Near the TO phonon-frequency however, the ratio $\Im\Pi/\Re\Pi$ is the highest, corresponding to very low quality-factor modes.
+%%In addition to these considerations, the values of the parameters may depend on the background material, which may change the phonon band structure. 
+%
+%
+%We provided this thin-film derivation as a simple way to understand the content of Equations~\eqref{eq:2ddispersion} and \eqref{eq:2dphononpolaritondispersion}.
+%In general Equation~\eqref{eq:2dsusceptibility} should be used to calculate $\Pi$ and the corresponding dispersion.
+%We note that a similar situation appears in the treatment of 2D plasmons: namely that a relation like Equation~\eqref{eq:2ddispersion} appears, except with $\Pi$ the polarization-polarization response of a 2D electron gas.
+%And furthermore that one can also obtain the same equation by considering the ultra-thin limit of a 3D plasmonic material \cite{jablan2009plasmonics,jablan2013plasmons}.
+%
+%
+%\section{Summary and Outlook}
+%
+%In summary, we have provided a theoretical framework based on linear response theory to calculate the phonon contribution to the dielectric function from first principles.
+%Our framework is rather versatile, allowing us to: use first principles calculations to get the dielectric function, predict how nonlocality enters the dielectric function, and predict the effect of reduced dimensionality.
+%A particularly interesting case to consider in future work would be to find a system where the optical phonons are drastically different from 3D to 2D.
+%Perhaps it is possible that there are some materials in which the 2D optical phonons experience lower losses due to a reduced scattering phase space.
+%The formalism we provide here may also be extended to understand phonon-polaritons in other more atypical reduced-dimensional settings, such as zero-dimensional settings in single emitters, i.e., `molecular phonon polaritons', in analogy to recent work on `molecular plasmons' \cite{manjavacas2013tunable,lauchner2015molecular}.
+%Notably, we go beyond oversimplifications of the Lorentz oscillator model in which the Born charges are treated as a single scalar quantity and can treat the influence and interplay of many phonon modes that contribute to the dielectric function.
+%We corroborated our approach through density functional theoretic calculations.
+%
+%In future work, besides furnishing an \emph{ab initio} description of nonlocality and reduced-dimension phonon polaritons, there are a number of interesting questions that can be addressed by the framework provided here.
+%For example, we may consider situations such as the phonon polaritons associated with optical phonons at the interface of two materials.
+%Another system of interest would be to consider two nearby layers of material in which the optical phonons of each material strongly couple to each other. 
+%In that case, it would be relevant to evaluate how this strong coupling manifests itself in the infrared dielectric function, and ultimately the confinement and propagation of the phonon polaritons.
 
 \section{Acknowledgements}
-This research used resources of the National Energy Research Scientific Computing Center, a DOE Office of Science User Facility supported by the Office of Science of the U.S. Department of Energy under Contract No. DE-AC02-05CH11231. 
-N. R. and J. C. recognize the support of the DOE Computational Science Graduate Fellowship (CSGF) fellowship no. DE-FG02-97ER25308. 
-P. N. acknowledges start-up funding from the Harvard John A. Paulson School of Engineering and Applied Sciences. 
-T. C. acknowledges support from the Danish Council for Independent Research (Grant No.\ DFF--6108-00667).
-%The authors thank XXXX for helpful discussions. Tentatively Josh Caldwell, Jeremy Baumberg, Dirk England, etc.
+%This research used resources of the National Energy Research Scientific Computing Center, a DOE Office of Science User Facility supported by the Office of Science of the U.S. Department of Energy under Contract No. DE-AC02-05CH11231. 
+N. R. recognizes the support of the DOE Computational Science Graduate Fellowship (CSGF) fellowship no. DE-FG02-97ER25308. P. N. acknowledges start-up funding from the Harvard John A. Paulson School of Engineering and Applied Sciences. T. C. acknowledges support from the Danish Council for Independent Research (Grant No.\ DFF--6108-00667). The authors thank Joshua Caldwell (Vanderbilt), Dmitri Basov (Columbia), Ido Kaminer (Technion), Siyuan Dai (UT Austin), and Samuel Moore (Columbia) for helpful discussions. This work was supported by the DOE Photonics at Thermodynamic Limits Energy Frontier Research Center under grant no. DE-SC0019140.
 
 \bibliographystyle{apsrev4-1}
 \bibliography{references}
