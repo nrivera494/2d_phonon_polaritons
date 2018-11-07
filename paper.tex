@@ -70,6 +70,8 @@ Extreme confinement of electromagnetic energy by phonon polaritons promises extr
 
 \maketitle
 
+In this Letter, we ... 
+
 \section{Electrodynamics of optical phonons in two-dimensions}
 
 In this section, we develop the theory of electromagnetic waves associated with optical phonons in two dimensions. The crux of the theory isdetermining the dielectric permittivity associated with the monolayer. It is obtained by considering the response of the ions in the monolayer to a longitudinal electromagnetic wave whose electric field is the gradient of a scalar potential $\phi$. The coupling Hamiltonian is then given by
@@ -102,16 +104,35 @@ The quantity $\epsilon_{\mathrm{RPA}}(\omega) = 0$ coincides with the phonon con
 
 To proceed, we express the polarization matrix element in Equation (4) in terms of parameters of the monolayer such as the Born effective charges. Considering the longitudinal phonon contribution to the second-quantized ionic displacement, as in [Needs reference!], one finds that the RPA dielectric function is given by:
 \begin{equation}
-\Pi_{qq}(\mathbf{q},\omega) = \frac{1}{\epsilon_0\hbar\Omega} \frac{2\omega_{\mathbf{q}L}}{\omega^2_{\mathbf{q}TO}-\omega^2}|\hat{q}\cdot\langle 1_{\mathbf{q}L}|\mathbf{P}(\mathbf{q})|0_{\mathbf{q}\sigma}\rangle|^2.
+\epsilon_{\mathrm{RPA}}(\omega) = \epsilon_{\mathrm{env}} - \frac{q}{2\epsilon_0}\frac{\Big|\hat{q}\cdot\sum\limits_{\kappa,j} Z_{\kappa,ij}\eta_{\kappa,j}  \Big|^2}{\omega^2_{\mathrm{TO}}-\omega^2}
 \end{equation}
-In this expression, $\omega_L$ and been re-named as $\omega_{TO}$, because in the absence of LO-TO splitting, they are degenerate. Additionally, we have defined eigendisplacements $\boldsymbol{\eta}_{\kappa\mathbf{q}}\equiv \frac{e_{\kappa\mathbf{q},L}}{\sqrt{M_{\kappa}}}$, where $e_{\kappa\mathbf{q},L}$ is the unit-normalized polarization vector of atom $\kappa$ in the unit cell oscillating according to a longitudinal phonon of wavevector $\mathbf{q}$ and $M_{\kappa}$ is the mass of atom $\kappa$.
+In this expression, $\omega_L$ and been re-named as $\omega_{\mathrm{TO}}$, because in the absence of LO-TO splitting, they are degenerate. Additionally, we have defined eigendisplacements $\boldsymbol{\eta}_{\kappa\mathbf{q}}\equiv \frac{e_{\kappa\mathbf{q},L}}{\sqrt{M_{\kappa}}}$, where $e_{\kappa\mathbf{q},L}$ is the unit-normalized polarization vector of atom $\kappa$ in the unit cell oscillating according to a longitudinal phonon of wavevector $\mathbf{q}$ and $M_{\kappa}$ is the mass of atom $\kappa$.
 
-As is well known, the zeros of the RPA dielectric function correspond to longitudinal electromagnetic waves. Thus, the condition for the zeros of the dielectric function correspond to
+As is well known, the zeros of the RPA dielectric function, denoted $\omega_{\mathbf{q}}$, correspond to longitudinal electromagnetic waves. Thus, the condition for the zeros of the dielectric function correspond to
+\begin{align}
+\omega^2_{\mathbf{q}} - \omega^2_{\mathbf{q},\mathrm{TO}} &= \frac{e^2}{2\epsilon_0\epsilon_{\mathrm{env}}q}\frac{1}{\Omega}q^2\Big|\sum\limits_{\kappa,j}Z_{\kappa,ij}\eta_{\kappa,j}  \Big|^2 \nonumber \\
+&= V(q)\frac{1}{\Omega}q^2\Big|\sum\limits_{\kappa,j}Z_{\kappa,ij}\eta_{\kappa,j}  \Big|^2,
+\end{align}
+where $V(q)$ is the Coulomb interaction in two dimensions, screened by the dielectric environment of the sub- and superstrates. This result, as we now show, reveals that the TM mode corresponds simply to the two-dimensional optical phonon. In particular, it was shown in [Sohier2017] that in two-dimensional polar materials, the extra restoring forces on LO phonons relative to TO phonons, due to the Coulomb interaction, lead to a wavevector-dependent LO-TO splitting given by Equation (8) of the current manuscript. \textit{Thus, one of the main results of our manuscript is that the wave solutions Maxwell's equations associated with phonon-polaritons in bulk materials, correspond to pure LO phonons in the monolayer limit.} 
+
+We now re-write $\epsilon_{\mathrm{RPA}}$ in a way that is expressed purely in terms of the optical phonon dispersion, derive the conductivity of the monolayer, and derive a universal form for the dispersion of 2D LO phonons in the long-wavelength limit. From Equation (8), we may write Equation (7) as
 \begin{equation}
-\omega^2_{\mathbf{q}} - \omega^2_{\mathbf{q},T} = \frac{e^2}{2\epsilon_0\epsilon_{\mathrm{env}}q}\frac{1}{\Omega}q^2\Big|\sum\limits_{\kappa,j}Z_{\kappa,ij}\eta_{\kappa,j}  \Big|^2
+\epsilon_{\mathrm{RPA}}(\omega) = \epsilon_{\mathrm{env}}\left( 1 + \frac{\omega^2_{\mathbf{q}\mathrm{LO}}-\omega^2_{\mathbf{q}\mathrm{TO}}}{\omega^2_{\mathbf{q}\mathrm{TO}}-\omega^2}\right).
 \end{equation}
+Similarly, the conductivity is prescribed by $\sigma(\mathbf{q},\omega) = -\iu \omega \Pi(\mathbf{q},\omega)$. We are now in a position to derive a universal form for the RPA dielectric function of a 2D polar slab in terms of three phenomenological parameters. In many cases [ref], the Born charges are independent of $q$ for small $q$, and thus the dispersion can be written as
+\begin{equation}
+\omega_{\mathbf{q},LO} = \sqrt{\omega^2_{\Gamma \mathrm{TO}}+\mathcal{S}q} \approx \omega_{\Gamma \mathrm{TO}} + v_g q,
+\end{equation}
+where $\mathcal{S}$ is a microscopic constant determined by the Born charges of the monolayer, $v_g$ is the group velocity of the LO mode, and $\omega_{\Gamma \mathrm{TO}}$ is the TO phonon frequency at the $\Gamma$ point. Then, the universal form of the dispersion relation 
+\begin{equation}
+\epsilon_{\mathrm{RPA}}(\omega) = \epsilon_{\mathrm{env}}\left( 1 + \frac{2v_g\omega_{\mathbf{q}\mathrm{TO}}}{\omega^2_{\mathbf{q}\mathrm{TO}}-\omega^2+\iu \omega \tau^{-1}}\right).
+\end{equation}
+where we have also phenomenologically included the phonon dissipation rate $\tau^{-1}$, consistently with  a relaxation-time prescription. Thus, all of the optical properties associated with LO phonons is captured by the TO phonon frequency, the slope of the LO dispersion at $\Gamma$, and the dissipation $\tau^{-1}$.
+
 
 \section{Strong light-matter interactions enabled by 2D optical phonons}
+
+We now move to analyze key figures of merit of 2D LO phonons.
 
 \subsection{Spontaneous emission}
 
@@ -167,7 +188,7 @@ As is well known, the zeros of the RPA dielectric function correspond to longitu
 %is the 2D Fourier transform of the polarization density. As the form of the displacement of the ions is still given by Equation~\eqref{eq:phononfield}, $\mathbf{P}_{mn}(\mathbf{q})$ is still given by Equations~(\ref{eq:fourierpolarization}--\ref{eq:oscillatorstrength}), but with the Born charges and eigendisplacements appropriate to the 2D system of interest. Note that although the lattice is two dimensional, in general, the ions may be displaced in any three directions and thus $\boldsymbol{\Pi}$ is still a $3\times3$ matrix.
 %Following the same kind of reasoning that lead to Equation~\eqref{eq:lorentzoscillator}, if we parameterize the effect of the different masses and Born charges in the unit cell by $M_{\mathrm{eff}}$ and $Q_{\mathrm{eff}}$, we will find a form for the polarization response function which is given by the second term of Equation~\eqref{eq:lorentzoscillator} but with $V$ replaced by $A$. Defining $N/A \equiv n_{\mathrm{s}}$, Equation~\eqref{eq:2dmaxwell} for the dispersion relation of 2D phonon polaritons tells us that
 %\begin{equation}\label{eq:2dphononpolaritondispersion}
-%\omega = \sqrt{\omega_{\mathrm{TO}}^2+\frac{n_{\mathrm{s}}Q_{\mathrm{eff}}^{2}}{2M_{\mathrm{eff}}\epsilon_0\epsilon_{\mathrm{env}}}q}.
+%\omega = \sqrt{\omega_{\mathrm{\mathrm{TO}}}^2+\frac{n_{\mathrm{s}}Q_{\mathrm{eff}}^{2}}{2M_{\mathrm{eff}}\epsilon_0\epsilon_{\mathrm{env}}}q}.
 %\end{equation}
 %Note that this dispersion has a strong resemblance to the plasmon dispersion relation of two-dimensional free electron gases, which is  $\omega = \sqrt{n_{\mathrm{s}}e^2q/2m\epsilon_0\epsilon_{\mathrm{env}}}$  in the local limit~\cite{stern1967polarizability}.
 %The only difference is the replacement of electron parameters (density, charge, mass) by the corresponding lattice parameters in the phononic case, and a shift in the minimum frequency by the transverse optical phonon frequency. 
@@ -179,8 +200,8 @@ As is well known, the zeros of the RPA dielectric function correspond to longitu
 %\end{equation}
 %with $\epsilon_{\mathrm{env}}$ the dielectric constant of the surrounding environment and $\epsilon(\omega)$ that of the polar dielectric.
 %The right-hand side is obtained in the limit of $d\rightarrow 0$.
-%Taking Equation~\eqref{eq:lorentzoscillator} for the dielectric function in bulk, we have that (in the absence of losses) $\epsilon_{\mathrm{env}} + qd\epsilon_{\infty} + q\frac{n_sQ_{\mathrm{eff}}^{2}}{2\epsilon_0 M_{\mathrm{eff}}}\frac{1}{\omega_{\mathrm{TO}}^2-\omega^2} = 0$, where we have identified $V = 2Ad$.
-%In the limit of small $d$, i.e., $qd \ll 1$, we recover Equations~\eqref{eq:2ddispersion} and \eqref{eq:2dphononpolaritondispersion} with $\Pi = \frac{n_sQ_{\mathrm{eff}}^{2}}{\epsilon_0 M}\frac{1}{\omega^2_{\mathrm{TO}}-\omega^2}$. It is interesting to see that in the 2D limit, the effect of the screening inside the material altogether vanishes. A similar phenomenon is known in the electrodynamics of plasmons in 2D materials, where the dielectric screening is known to be entirely provided by the environment and is equal to $\epsilon_{\mathrm{env}}$. A useful result which follows is that we may also derive another important figure of merit, the $p$-polarized reflectivity of a 2D polar dielectric, which is related to the local density of states of the polar dielectric, which quantifies the strength of coupling to external probes such as a nano-antenna or a quantum emitter.
+%Taking Equation~\eqref{eq:lorentzoscillator} for the dielectric function in bulk, we have that (in the absence of losses) $\epsilon_{\mathrm{env}} + qd\epsilon_{\infty} + q\frac{n_sQ_{\mathrm{eff}}^{2}}{2\epsilon_0 M_{\mathrm{eff}}}\frac{1}{\omega_{\mathrm{\mathrm{TO}}}^2-\omega^2} = 0$, where we have identified $V = 2Ad$.
+%In the limit of small $d$, i.e., $qd \ll 1$, we recover Equations~\eqref{eq:2ddispersion} and \eqref{eq:2dphononpolaritondispersion} with $\Pi = \frac{n_sQ_{\mathrm{eff}}^{2}}{\epsilon_0 M}\frac{1}{\omega^2_{\mathrm{\mathrm{TO}}}-\omega^2}$. It is interesting to see that in the 2D limit, the effect of the screening inside the material altogether vanishes. A similar phenomenon is known in the electrodynamics of plasmons in 2D materials, where the dielectric screening is known to be entirely provided by the environment and is equal to $\epsilon_{\mathrm{env}}$. A useful result which follows is that we may also derive another important figure of merit, the $p$-polarized reflectivity of a 2D polar dielectric, which is related to the local density of states of the polar dielectric, which quantifies the strength of coupling to external probes such as a nano-antenna or a quantum emitter.
 %By considering the infinitely thin limit of a polar dielectric with dielectric function $\epsilon(\omega)$ and defining $\epsilon(\omega) = \Pi/2d$, we immediately find that the $p$-polarized reflectivity is given by
 %\begin{equation}\label{eq:2dtmreflectivity}
 %r_p = \frac{1}{1+2\epsilon_{\mathrm{env}}/q\Pi}.
@@ -189,9 +210,9 @@ As is well known, the zeros of the RPA dielectric function correspond to longitu
 %We note that, in general, when considering bulk and 2D versions of a material, at the very least, the effective parameters $Q_{\mathrm{eff}}$ and $M_{\mathrm{eff}}$ will change as a result of changes to the phonon band structure. In other words, although the forms of the expressions for the dielectric function 
 %
 %
-% It is also quite possible that they altogether vanish in the 2D case as opposed to the 3D case. As a recently discovered example of such a phenomenon, it was found that the LO-TO splitting of some 2D polar dielectrics, such as hBN \cite{sohier2017breakdown} altogether vanishes, and only returns to its bulk value after a small but finite wavevector. This would then suggest that a description of phonon polaritons necessitates consideration of the spatially nonlocal dielectric function as in Equation (12), and that these polaritons moreover may only exist when their wavelengths are sufficiently short. Another important change, beyond the theory presented in this work is that the losses may also change drastically in the reduction of dimensions. For example, it was found in several experiments that the damping rate of the TO phonon in hBN nearly doubles upon going from bulk to 2D\cite{gorbachev2011hunting,tran2016quantum}, which may strongly suppress the ability to image the polariton with near-field probes.
-%%This is due to the small thickness where the dispersion of the phonon polariton is quite flat, and very high wavevector modes, corresponding to the maximum wavevector detectable by a near-field tip, occur at frequencies very close to the TO phonon frequency.
-%%Near the TO phonon-frequency however, the ratio $\Im\Pi/\Re\Pi$ is the highest, corresponding to very low quality-factor modes.
+% It is also quite possible that they altogether vanish in the 2D case as opposed to the 3D case. As a recently discovered example of such a phenomenon, it was found that the LO-\mathrm{TO} splitting of some 2D polar dielectrics, such as hBN \cite{sohier2017breakdown} altogether vanishes, and only returns to its bulk value after a small but finite wavevector. This would then suggest that a description of phonon polaritons necessitates consideration of the spatially nonlocal dielectric function as in Equation (12), and that these polaritons moreover may only exist when their wavelengths are sufficiently short. Another important change, beyond the theory presented in this work is that the losses may also change drastically in the reduction of dimensions. For example, it was found in several experiments that the damping rate of the \mathrm{TO} phonon in hBN nearly doubles upon going from bulk to 2D\cite{gorbachev2011hunting,tran2016quantum}, which may strongly suppress the ability to image the polariton with near-field probes.
+%%This is due to the small thickness where the dispersion of the phonon polariton is quite flat, and very high wavevector modes, corresponding to the maximum wavevector detectable by a near-field tip, occur at frequencies very close to the \mathrm{TO} phonon frequency.
+%%Near the \mathrm{TO} phonon-frequency however, the ratio $\Im\Pi/\Re\Pi$ is the highest, corresponding to very low quality-factor modes.
 %%In addition to these considerations, the values of the parameters may depend on the background material, which may change the phonon band structure. 
 %
 %
