@@ -55,7 +55,7 @@
 \newcommand{\inset}[1]{\textcolor{green!50!black}{#1}}
 \begin{document}
 
-\title{Theory of interactions between matter and optical phonons in two dimensions}
+\title{Nanophotonics with optical phonons in two dimensions}
 
 \author{Nicholas Rivera}\email{nrivera@seas.harvard.edu}\affiliation{\HarvardSEAS}\affiliation{\MITPhy}
 \author{Thomas Christensen}\affiliation{\MITPhy}
@@ -72,8 +72,31 @@ Extreme confinement of electromagnetic energy by phonon polaritons promises extr
 
 \section{Electrodynamics of optical phonons in two-dimensions}
 
-In this section, we develop the theory of electromagnetic waves associated with optical phonons in two dimensions. A theory of electromagnetic waves in polar 2D materials involves first calculating the dielectric permittivity associated with the monolayer. 
+In this section, we develop the theory of electromagnetic waves associated with optical phonons in two dimensions. The crux of the theory isdetermining the dielectric permittivity associated with the monolayer. It is obtained by considering the response of the ions in the monolayer to a longitudinal electromagnetic wave whose electric field is the gradient of a scalar potential $\phi$. The coupling Hamiltonian is then given by
+\begin{equation}
+H_{\mathrm{int}} = \int d^2x \rho \phi = -\int d^2x (\nabla\cdot\mathbf{P})\phi,
+\end{equation} 
+with $\rho$ the charge density and $\mathbf{P}$ the polarization density associated with the ionic motion. The polarization can be expanded in powers of the displacement of the ions. In particular, we can consider the polarization $P_i$ generated in the monolayer when atom $\kappa$ of the unit cell is displaced along the $j$ direction by amount $u_{\kappa,j}$. To lowest order:
+\begin{equation}
+P_i - P_i^{0} = \Omega\frac{\partial P_i}{\partial u_{\kappa,j}}u_{\kappa,j} \equiv Z_{kappa,ij}u_{j},
+\end{equation} 
+where $Z_{\kappa,ij}$ is the Born effective charge tensor of ion $\kappa$ and $\Omega$ is the unit cell area. With this relation between polarization and ionic displacements, we have expressed the Hamiltonian as a coupling between the scalar potential and ionic displacements. We consider the response of the monolayer to a scalar potential of the form $\phi = \phi(\mathbf{q},\omega)e^{i\mathbf{q}\cdot\mathbf{r}-i\omega t}$, where $\mathbf{q}$ is a two-dimensional wavevector in the plane of the monolayer. Such a potential corresponds to a longitudinal electric field of the form $\mathbf{E} = i\mathbf{q}\phi(\mathbf{q},\omega)e^{i\mathbf{q}\cdot\mathbf{r}-i\omega t}$. It follows that the induced polarization takes the form $P_i  = \epsilon_0\Pi_{ij}(\mathbf{q},\omega)E_{j,\mathrm{tot}}(\mathbf{q},\omega)$, where $\Pi_{ij}(\mathbf{q},\omega)$ is the polarization-polarization response function of the monolayer and  $E_{j,mathrm{tot}}(\mathbf{q},\omega)$ is taken as the \textit{total} field which is a sum of the applied field and the field created by induced polarization. The polarization-polarization response function is given by
+\begin{equation}\label{eq:2dsusceptibility}
+\boldsymbol{\Pi}(\mathbf{q},\omega) =  \frac{1}{\epsilon_0 \Omega}\sum\limits_{m,n}\frac{\mathbf{P}_{mn}(\mathbf{q})\otimes\mathbf{P}_{nm}(\mathbf{q})}{\hbar\omega + E_{nm}+\iu 0^+}\left(\e^{\beta E_m}-\e^{\beta E_n} \right),
+\end{equation}
+where $m,n$ are states of the phononic Fock space of the monolayer, $P_{i,mn} = \sum\limits_{\kappa,ij}\langle m | u_{\kappa,j} | n \rangle$ are matrix elements of the polarization associated with phonon modes, $E_{m (n)}$ is the energy of state $m (n)$, and $\beta$ is the inverse temperature. Evaluating the contribution of optical phonons in the harmonic approximation to the polarization-polarization response, one finds that the response function is given by: 
+\begin{equation}
+\Pi_{qq}(\mathbf{q},\omega) = \frac{1}{\epsilon_0\hbar\Omega} \frac{2\omega_{\mathbf{q}L}}{\omega^2_{\mathbf{q}L}-\omega^2}|\hat{q}\cdot\langle 1_{\mathbf{q}L}|\mathbf{P}(\mathbf{q})|0_{\mathbf{q}\sigma}\rangle|^2,
+\end{equation}
+where 'L' denotes longitudinal polarization, $|0_{\mathbf{q}L}\rangle$ ($|1_{\mathbf{q}L}\rangle$) denotes a state with no (one) longitudinal phonon of wavevector $\mathbf{q}$. The frequency $\omega_{\mathbf{q}L}$ in the denominator, as in the case of bulk phonons, is the frequency of the longitudinal phonon of wavevector $\mathbf{q}$ prior to considering LO-TO splitting [Needs reference!]. This is the consistent with the fact that LO-TO splitting is a collective effect arising from Coulomb interactions and the fact that the equation above represents a single-particle susceptibility. Coulomb interactions are accounted for in the random phase approximation, and to include them in the single-particle response would be double-counting. The component $qq$ in the response tensor denotes a pair of directions parallel to the wavevector.  
+To relate the polarization-polarization response function to the electromagnetic modes supported by a polar monolayer, we solve Maxwell's equations for an evanescent electromagnetic mode supported by a surface with polarization-polarization response tensor $\mathbf{\Pi}$. We consider the monolayer to be sandwiched by a superstrate of permittivity $\epsilon_1$ and a substrate of permittivity $\epsilon_2$.
 
+To strip the analysis to its bare essentials, we consider optical phonon response with in-plane isotropy in the long-wavelength limit arising from in-plane LO oscillations. A relevant example of a system where these conditions are satisfied is in a hexagonal boron nitride monolayer, considering optical phonons in the so-called upper Reststrahlen band which in bulk spans the frequency range of 1360 to 1610 cm$^{-1}$. In a monolayer geometry with translation invariance and in-plane isotropy, the electromagnetic modes of Maxwell's equations can be composed into transverse magnetic (TM) and transverse electric (TE), where the magnetic or electric field respectively is transverse to the in-plane wavevector of the mode. In practice, it is the TM mode which is associated with highly confined electromagnetic waves that are of use in nanophotonics. TE waves are not supported at the same frequency as transverse magnetic waves, and require exotic conditions to be realized in two-dimensional materials. Given the isotropy, we may suppress indices from the response tensor. We may also consider without further loss of generality a TM mode with wavenumber $q$ along the $x$-direction in the monolayer and magnetic field $H(z)e^{iqx-i\omega t}$ along the $y$-direction of the monolayer. The direction transverse to the monolayer is denoted as $z$.  With these definitions in place, the Maxwell equation satisfied by the magnetic field is \begin{equation}\label{eq:2dmaxwell}
+\left(-\frac{\dd^2}{\dd{}z^2}+q^2-\epsilon_{\mathrm{env}}\frac{\omega^2}{c^2} \right)H(z) = 0.
+\end{equation}
+We consider a solution of the form $H(z) = e^{-\kappa_1 z}$ for $z > 0$ with $\kappa_1 = \sqrt{q^2-\epsilon_1\frac{\omega^2}{c^2}}$ and a solution of the form $H(z) = -ce^{\kappa_2 z}$ for $z < 0$ with $\kappa_2 = \sqrt{q^2-\epsilon_2\frac{\omega^2}{c^2}}$. Continuity of the displacement field across the interface forces $c = \frac{\epsilon_1}{\epsilon_2}$. Meanwhile, the boundary condition on the magnetic field is $\unitvec{z}\times(\mathbf{H}^{(+)}-\mathbf{H}^{(-)}) = \mathbf{K} = -\iu\omega\mathbf{P}_{\mathrm{s}}$ where $\mathbf{K}$ is the surface current density, expressed through the surface polarization density $\mathbf{P}_{\mathrm{s}}$. 
+
+The condition for an evanescent electromagnetic wave can be written as $\epsilon_{\mathrm{RPA}}(\omega) = 0$, where $\epsilon_{\mathrm{RPA}}(\omega) = \epsilon_{\mathrm{env}}+\frac{1}{2}q\Pi(\mathbf{q},\omega)$ coincides with the phonon contribution to the longitudinal dielectric function of the monolayer in the random-phase approximation. 
 
 \section{Strong light-matter interactions enabled by 2D optical phonons}
 
