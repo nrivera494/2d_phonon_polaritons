@@ -1,0 +1,151 @@
+\documentclass[aps,prb,twocolumn, final,
+	           groupedaddress,superscriptaddress,
+               amsfonts,amssymb,amsmath,floatfix,
+	           citeautoscript]{revtex4-1}
+
+
+% --- PACKAGES ---
+\usepackage{graphicx}
+\usepackage[centering,hmargin=20mm,tmargin=28mm,bmargin=25mm]{geometry}
+\usepackage{newtxtext}
+\usepackage[cmintegrals]{newtxmath}
+
+%-----SI UNITS-----
+\usepackage{siunitx}
+\sisetup{range-phrase =\text{\,--\,},
+	list-units   =single,
+	range-units  =single,
+	list-pair-separator = {\ \text{and}\ },
+	list-separator = {,\ \linebreak[0]},
+	list-final-separator = {,\ \linebreak[0]\text{and}\ },
+	retain-unity-mantissa = false,
+}
+
+%--- REFERENCING ---
+\usepackage{xcolor}
+\usepackage{hyperref}
+\hypersetup{colorlinks,
+	linkcolor={blue!75!black!80!yellow},
+	citecolor={blue!75!black!80!yellow},
+	urlcolor={blue!75!black!80!yellow}
+}
+
+%--- CAPTIONS (sans serif) ---
+\makeatletter
+\renewcommand\@make@capt@title[2]{%
+	\@ifx@empty\float@link{\@firstofone}{\expandafter\href\expandafter{\float@link}}%
+	\sffamily{\textbf{#1}}\@caption@fignum@sep#2
+}%
+\renewcommand\figurename{Figure}
+\makeatother
+
+% --- SPACING ---
+\usepackage{microtype} % Kerning and symbol-stretching
+\usepackage{xspace}
+
+\thickmuskip=5mu plus 2mu minus 1mu  %binary relations (default, 5mu plus 5mu)
+\medmuskip=4mu plus 2mu minus 2mu    %binary operations (default, 4mu plus 2mu minus 4mu)
+
+\frenchspacing %Ensure that revTeX does not do "double spaces" after punctuation
+
+% --- COMMANDS ---
+\renewcommand{\Im}{\operatorname{Im}}
+\renewcommand{\Re}{\operatorname{Re}}
+\newcommand{\sgn}{\operatorname{sgn}}
+
+\newcommand{\iu}{\mathrm{i}}
+\newcommand{\e}{\mathrm{e}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\unitvec}[1]{\ensuremath{\hat{\mathbf{#1}}}}
+\newcommand{\sub}[1]{\ensuremath{_{\textrm{#1}}}} %Upright multi-character subscript
+\newcommand{\super}[1]{\ensuremath{^{\textrm{#1}}}} %Upright multi-character superscript
+
+%abbreviations
+\newcommand{\ie}{i.e.\@\xspace} %Gobble-spaces of the "small" type (small is ensured by adding \@)
+\newcommand{\cf}{cf.\@\xspace}
+\newcommand{\eg}{e.g.\@\xspace}
+\newcommand{\etc}{etc.\@\xspace}
+
+\newcommand{\HarvardSEAS}{John A. Paulson School of Engineering and Applied Sciences, Harvard University, Cambridge, MA, 02139, USA}
+\newcommand{\MITPhy}{Department of Physics, Massachusetts Institute of Technology, Cambridge, MA, 02139, USA}
+
+% ----- COMMENTS AND META-ANNOTATIONS -----
+\usepackage{textcomp} % for \textrightarrow
+\usepackage{xifthen}
+\usepackage{etoolbox}
+\newboolean{togglecomments}
+\newboolean{togglechanges} 
+
+% toggle to true to see comments (otherwise hidden)
+\setboolean{togglecomments}{true}  
+% toggle to false to see mixed versions (otherwise edits are shown exclusively)
+\setboolean{togglechanges}{false} 
+
+\newcommand{\comment}[2]{%
+    \ifbool{togglecomments}%
+    {\textcolor{blue!70!black}{\small\textsf{%
+    \textsuperscript{\textsc{\textsf{\MakeLowercase{#1}}}}%
+    [#2]}}} % if true, show comments
+    {}}     % if false, do nothing
+\newcommand{\swap}[2]{\ifbool{togglechanges}
+    {#2}  % TC-only version
+    {\textcolor{red!70!black}{[#1]}\text{\textrightarrow{}}\textcolor{green!50!black}{[#2]}}}
+\newcommand{\remove}[1]{\ifbool{togglechanges}
+    {}    % TC-only version
+    {\textcolor{red!70!black}{#1}}}
+\newcommand{\inset}[1]{\ifbool{togglechanges}
+    {{}#1}  % TC-only version
+    {\textcolor{green!50!black}{{}#1}}}
+\makeatletter
+\newcommand{\citeremind}[1]{%
+	\unskip%
+    \textcolor{blue!75!black!80!yellow}{${}^\blacksquare$%
+	\ifthenelse{\isempty{#1}}{}{\textsuperscript{\tiny\textsf{#1}}}%
+	}\xspace}
+\makeatother
+\newcommand{\FIXME}[1]{\textcolor{red!70!black}{[#1]}}
+\newcommand{\optional}[1]{\textcolor{yellow!70!gray}{#1}}
+
+
+
+
+
+% --- DOCUMENT ---
+\begin{document}
+
+% --- TITLE & AUTHORSHIP ---
+\title{Supporting Information for: Phonon polaritonics in two-dimensional materials}
+
+\author{Nicholas Rivera}
+\email{nrivera@seas.harvard.edu}
+\affiliation{\HarvardSEAS}\affiliation{\MITPhy}
+%
+\author{Thomas Christensen}
+\affiliation{\HarvardSEAS}\affiliation{\MITPhy}
+%
+\author{Prineha Narang}
+\email{prineha@seas.harvard.edu}
+\affiliation{\HarvardSEAS}
+
+% --- ABSTRACT ---
+
+
+\maketitle
+
+
+
+
+\begin{figure*}[h]
+    \includegraphics[width=0.6\linewidth]{enhancement.png}
+    \caption{%
+        \textbf{Spontaneous emission enhancement in hBN thin films and monolayer.} Spontaneous emission enhancement for a dipole emitter 5 nm away from the surface of thin films of bulk hBN as a function of emission frequency for film thicknesses of 100 nm, 10 nm, 1 nm, and 0.33 nm, as well as monolayer hBN with dispersion relation and conductivity given in the main text. The hBN in all cases is surrounded by air. The TO frequency  taken for the bulk is 1387 cm$^{-1}$.
+        \label{fig:s1}
+        }
+\end{figure*}~
+
+
+
+\bibliographystyle{apsrev4-1}
+\bibliography{references}
+
+\end{document}
