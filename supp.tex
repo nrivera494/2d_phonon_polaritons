@@ -1,16 +1,26 @@
-\documentclass[aps,prb,twocolumn, final,
-	           groupedaddress,superscriptaddress,
-               amsfonts,amssymb,amsmath,floatfix,
-	           citeautoscript]{revtex4-1}
+\documentclass[aps,rmp,onecolumn,
+			   groupedaddress,superscriptaddress,
+			   amsfonts,amssymb,amsmath,
+			   citeautoscript,bibnotes,
+			   a4paper]{revtex4}
 
 
-% --- PACKAGES ---
+%-----PACKAGES-----
+\usepackage[pdftex]{hyperref}
+\hypersetup{colorlinks,
+	linkcolor={blue!75!black!80!yellow},
+	citecolor={blue!75!black!80!yellow},
+	urlcolor={blue!75!black!80!yellow},
+	pdfstartview=FitH}
+\usepackage[top=1in, bottom=1.5in, left=1.25in, right=1.25in]{geometry} %Change margins
 \usepackage{graphicx}
-\usepackage[centering,hmargin=20mm,tmargin=28mm,bmargin=25mm]{geometry}
-\usepackage{newtxtext}
-\usepackage[cmintegrals]{newtxmath}
+\usepackage{xspace}
+\newcommand\bmmax{0} % the bm package takes up a lot of alphabets internally, making it impossible to load more font packages (like sansmath); reduce the number of preloaded alphabets to avoid this
+\usepackage{bm}
+\usepackage{braket}
+\usepackage{xcolor}
+\usepackage[UKenglish]{babel}
 
-%-----SI UNITS-----
 \usepackage{siunitx}
 \sisetup{range-phrase =\text{\,--\,},
 	list-units   =single,
@@ -18,35 +28,93 @@
 	list-pair-separator = {\ \text{and}\ },
 	list-separator = {,\ \linebreak[0]},
 	list-final-separator = {,\ \linebreak[0]\text{and}\ },
-	retain-unity-mantissa = false,
-}
+	detect-all = true}
+\DeclareSIUnit[number-unit-product = ]\percent{\char`\%} % remove space before percentage sign
 
-%--- REFERENCING ---
-\usepackage{xcolor}
-\usepackage{hyperref}
-\hypersetup{colorlinks,
-	linkcolor={blue!75!black!80!yellow},
-	citecolor={blue!75!black!80!yellow},
-	urlcolor={blue!75!black!80!yellow}
-}
 
-%--- CAPTIONS (sans serif) ---
+%-----APPPEND 'S' TO REFERENCES OF ALL KINDS-----
+\renewcommand{\theequation}{S\arabic{equation}} %Equations
+\renewcommand{\thefigure}{S\arabic{figure}} %Figures
+\renewcommand{\bibnumfmt}[1]{[S#1]} %Citations
+\renewcommand{\citenumfont}[1]{S#1}
+\renewcommand{\thetable}{Supplementary Table \arabic{table}}%
+\renewcommand*\descriptionlabel[1]{\hspace\labelsep\normalfont\itshape #1\ \hfil} %Change appearance of description lists
+\renewcommand{\thesection}{S\arabic{section}}
+\renewcommand{\thesubsection}{\Alph{subsection}}
+\renewcommand{\thesubsubsection}{\roman{subsubsection}}
+
+%-----LOADING RELEVANT FONTS [Times Roman]-----
+\usepackage{txfonts}  %Times Roman fonts
+\usepackage{txfontsb} %Addition for txfonts, including old style numerals and greek
+
+%-----REDEFINE THE RMP STYLE OF AUTHORS AND AFFILIATIONS-----
 \makeatletter
-\renewcommand\@make@capt@title[2]{%
-	\@ifx@empty\float@link{\@firstofone}{\expandafter\href\expandafter{\float@link}}%
-	\sffamily{\textbf{#1}}\@caption@fignum@sep#2
+\def\frontmatter@authorformat{%
+	\preprintsty@sw{\vskip0.5pc\relax}{}%
+	\@tempskipa\@flushglue
+	\@flushglue\z@ plus50\p@\relax
+	\raggedright\advance\leftskip.25in\relax
+	\@flushglue\@tempskipa
+	\parskip\z@skip
 }%
-\renewcommand\figurename{Figure}
+%
+\def\frontmatter@affiliationfont{% Helvetica 9/10.2
+	\small\slshape\selectfont\baselineskip10.5\p@\relax
+	\@tempskipa\@flushglue
+	\@flushglue\z@ plus50\p@\relax
+	\raggedright\advance\leftskip.25in\relax
+	\@flushglue\@tempskipa
+}
+%	
+\def\paragraph{%
+	\@startsection
+	{paragraph}%
+	{4}%
+	{\parindent}%
+	{\z@}%
+	{-1em}%
+	{\normalfont\small\itshape\sansmath\textsf}%%Change so that paragraphs are also in sans serif font
+}%
+\renewcommand*\email[1][]{\begingroup\sanitize@url\@email{#1}} %Remove the 'Electronic adress: ' from RMP style
 \makeatother
 
-% --- SPACING ---
-\usepackage{microtype} % Kerning and symbol-stretching
-\usepackage{xspace}
+\setcitestyle{numbers,square,sort&compress} %We don't want the rmp citation style, but standard style square bracket, numbers style instead
 
+%----- Changes to caption -----
+% These hacks are specific to revtex4 (revtex4-1 solution doesn't work)
+\usepackage[EULERGREEK]{sansmath}
+\makeatletter 
+% set figure caption title to bold sans serif... 
+\renewcommand*{\fnum@figure}{{\sffamily\bfseries{}\figurename~\thefigure{}.}}
+% set figure caption contents to sans serif
+\long\def\@makecaption#1#2{%
+	\vskip\abovecaptionskip
+	\vbox{%
+		\flushing%
+		\sisetup{math-sf=\textsf}%
+		\small\sffamily\sansmath%
+		\noindent
+		#1\nobreak\hskip.5em plus.2em\ignorespaces#2\par
+	}%
+	\vskip\belowcaptionskip
+}%
+\makeatother
+
+%----- Spacing and binary relations/operations -----
 \thickmuskip=5mu plus 2mu minus 1mu  %binary relations (default, 5mu plus 5mu)
 \medmuskip=4mu plus 2mu minus 2mu    %binary operations (default, 4mu plus 2mu minus 4mu)
-
 \frenchspacing %Ensure that revTeX does not do "double spaces" after punctuation
+
+%-----COMMANDS-----
+\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
+\let\endchangemargin=\endlist 
+\newcommand{\appropto}{\mathrel{\vcenter{
+			\offinterlineskip\halign{\hfil$##$\cr
+				\propto\cr\noalign{\kern2pt}\sim\cr\noalign{\kern-2pt}}}}}
+
+
+% hyphenation rules
+\hyphenation{}
 
 % --- COMMANDS ---
 \renewcommand{\Im}{\operatorname{Im}}
@@ -66,47 +134,10 @@
 \newcommand{\eg}{e.g.\@\xspace}
 \newcommand{\etc}{etc.\@\xspace}
 
+
+% ---- Author affiliations -----
 \newcommand{\HarvardSEAS}{John A. Paulson School of Engineering and Applied Sciences, Harvard University, Cambridge, MA, 02139, USA}
 \newcommand{\MITPhy}{Department of Physics, Massachusetts Institute of Technology, Cambridge, MA, 02139, USA}
-
-% ----- COMMENTS AND META-ANNOTATIONS -----
-\usepackage{textcomp} % for \textrightarrow
-\usepackage{xifthen}
-\usepackage{etoolbox}
-\newboolean{togglecomments}
-\newboolean{togglechanges} 
-
-% toggle to true to see comments (otherwise hidden)
-\setboolean{togglecomments}{true}  
-% toggle to false to see mixed versions (otherwise edits are shown exclusively)
-\setboolean{togglechanges}{false} 
-
-\newcommand{\comment}[2]{%
-    \ifbool{togglecomments}%
-    {\textcolor{blue!70!black}{\small\textsf{%
-    \textsuperscript{\textsc{\textsf{\MakeLowercase{#1}}}}%
-    [#2]}}} % if true, show comments
-    {}}     % if false, do nothing
-\newcommand{\swap}[2]{\ifbool{togglechanges}
-    {#2}  % TC-only version
-    {\textcolor{red!70!black}{[#1]}\text{\textrightarrow{}}\textcolor{green!50!black}{[#2]}}}
-\newcommand{\remove}[1]{\ifbool{togglechanges}
-    {}    % TC-only version
-    {\textcolor{red!70!black}{#1}}}
-\newcommand{\inset}[1]{\ifbool{togglechanges}
-    {{}#1}  % TC-only version
-    {\textcolor{green!50!black}{{}#1}}}
-\makeatletter
-\newcommand{\citeremind}[1]{%
-	\unskip%
-    \textcolor{blue!75!black!80!yellow}{${}^\blacksquare$%
-	\ifthenelse{\isempty{#1}}{}{\textsuperscript{\tiny\textsf{#1}}}%
-	}\xspace}
-\makeatother
-\newcommand{\FIXME}[1]{\textcolor{red!70!black}{[#1]}}
-\newcommand{\optional}[1]{\textcolor{yellow!70!gray}{#1}}
-
-
 
 
 
@@ -114,7 +145,7 @@
 \begin{document}
 
 % --- TITLE & AUTHORSHIP ---
-\title{Supporting Information for: Phonon polaritonics in two-dimensional materials}
+\title{SUPPORTING INFORMATION\\Phonon polaritonics in two-dimensional materials}
 
 \author{Nicholas Rivera}
 \email{nrivera@seas.harvard.edu}
@@ -133,19 +164,25 @@
 \maketitle
 
 
-
-
+\vspace*{4ex}
 \begin{figure*}[h]
-    \includegraphics[width=0.6\linewidth]{enhancement.png}
+    \includegraphics[width=0.725\linewidth]{enhancement.png}
     \caption{%
-        \textbf{Spontaneous emission enhancement in hBN thin films and monolayer.} Spontaneous emission enhancement for a dipole emitter 5 nm away from the surface of thin films of bulk hBN as a function of emission frequency for film thicknesses of 100 nm, 10 nm, 1 nm, and 0.33 nm, as well as monolayer hBN with dispersion relation and conductivity given in the main text. The hBN in all cases is surrounded by air. The TO frequency  taken for the bulk is 1387 cm$^{-1}$.
+        \textbf{Spontaneous emission enhancement in hBN thin films and monolayer.} 
+        Spontaneous emission enhancement for a dipole emitter \SI{5}{\nm} away from the surface of thin films of bulk hBN as a function of emission frequency for film thicknesses of \SIlist{100; 10; 1; 0.33}{\nm}, as well as monolayer hBN (dispersion relation and conductivity given in the main text). 
+        In all cases, the hBN is assumed surrounded by air. 
+        The bulk TO frequency is \SI{1387}{\per\cm}.
         \label{fig:s1}
         }
-\end{figure*}~
+\end{figure*}
 
+\mbox{}
+\vfill
 
+\mbox{}
 
-\bibliographystyle{apsrev4-1}
-\bibliography{references}
+\renewcommand\refname{} % we don't have any references this time around, so suppress printing of 'References' section head
+%\bibliographystyle{apsrev4-1}
+%\bibliography{references}
 
 \end{document}
