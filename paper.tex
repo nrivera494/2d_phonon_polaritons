@@ -221,19 +221,16 @@ The second comment is that much of what has been discussed here has a strong ana
 
 \addition{%
 The third comment is that the considerations of this section can be extended to few-layer systems, such as hBN bilayers, which may still be considered 2D for polariton wavelengths large compared to the bilayer thickness. The considerations may also be extended to 1D polar materials, such as BN nanotubes. 
-For bilayers, as was discussed in Ref.~\citenum{sohier2017breakdown}, one may describe the LO--TO splitting in terms of Eq.~\eqref{eq:zerosofresponse}, with the 2D Coulomb interaction, but with eigendisplacements appropriate to the few layer system.
-For a small number of layers $N$, \FIXME{Mention scaling of $|\hat{\mathbf{q}}\cdot\ldots|^2 = NQ_*^2/M_*$} this should enhance the LO--TO splitting by a factor of $N$. 
-To go beyond an effectively 2D description of a monolayer, and make the transition from monolayer to bulk, we may make use of the quasi-2.5D Coulomb interaction~\cite{thygesen2017calculating} in Eq.~\eqref{eq:zerosofresponse}. 
-In that case, for a film of effective thickness $t$, the interaction is approximately $V_{\text{Q2.5D}}(q) = \frac{e^2}{\epsilon_0 tq^2}\big(1-\frac{2}{qt}e^{-\frac{qt}{2}}\sinh\frac{qt}{2} \big)$. 
-This form interpolates between the 2D and 3D interactions in the limits $qt \rightarrow 0$ and $qt \rightarrow \infty$. 
-For sufficiently large thickness and finite-$q$, the 2.5D Coulomb interaction scales as $t^{-1}q^{-2}$. 
+One may describe the LO--TO splitting in terms of Eq.~\eqref{eq:zerosofresponse}, with the 2D Coulomb interaction, but with eigendisplacements appropriate to the few layer system. For a small number of layers $N$, the oscillator strength scales as $N$ \cite{sohier2017breakdown}. This should enhance the LO--TO splitting by a factor of $N$ and adjust the observed phonon polariton frequencies accordingly. To go beyond an effectively 2D description of a monolayer, and make the transition from monolayer to bulk, we may make use of the quasi-2.5D Coulomb interaction~\cite{thygesen2017calculating} in Eq.~\eqref{eq:zerosofresponse}. 
+In that case, for a film of effective thickness $t$, the interaction is approximately $V_{\text{Q2.5D}}(q) = \frac{e^2}{\epsilon_0\epsilon_{\infty} tq^2}\big(1-\frac{2}{qt}e^{-\frac{qt}{2}}\sinh\frac{qt}{2} \big)$. 
+This form interpolates between the 2D and 3D interactions in the limits $qt \rightarrow 0$ and $qt \rightarrow \infty$, assuming that $\epsilon_{\infty}$ also interpolates between the monolayer value, which is 1, and the bulk value, which is $\epsilon_{\infty}$. For sufficiently large thickness and finite-$q$, the 2.5D Coulomb interaction scales as $t^{-1}q^{-2}$. 
 Noting the $q^2$ factor in Eq.~\eqref{eq:zerosofresponse}, as well as the $N$-dependence of the quantity involving eigendisplacements, one finds an LO--TO splitting independent of thickness, as expected for bulk samples.
 }
 
 \addition{%
 For 1D systems, beyond using the eigendisplacements appropriate to the 1D system, one must also use the 1D Coulomb interaction, cutoff by a length $R$ which for a nanotube, would be its radius. 
 In that case, the 1D Coulomb interaction is $e^2K_0(qr)/2\pi\epsilon_0$, where $K_0$ is the (zeroth order) modified Bessel function of the second kind. 
-Thus, the $q$-dependence of the LO--TO splitting is $q^2K_0(qR)$. This is in close analogy with the relation for the plasma frequency of 1D plasmons, as expected from the considerations of the previous paragraph. 
+Thus, the $q$-dependence of the LO--TO splitting is $q^2K_0(qR)$. This is in close analogy with the relation for the plasma frequency of 1D plasmons, as expected from the discussion of Figure 1. 
 As regards the optical properties, the optical conductivity is still governed by Eq.~\eqref{eq:2dsusceptibility}.
 }
 
@@ -297,8 +294,10 @@ However, it is expected challenging to observe such a mode, as can be anticipate
 }
 
 
-	\comment{tc}{Isn't this a bit strange to discuss, given that our results do not really show this (since we are sticking to the local case? This is only a feature in \citet{sohier2016two} results?}
-Another anomaly between 2D and 3D is that the dispersion relation of the 2D LO phonon is non-monotonic, and the frequency starts to decrease for sufficiently large wavevector. This can never happen by extrapolating to a monolayer a dielectric function which has finite LO--TO splitting. This turn-back point corresponds to a frequency of around \SI{1500}{\per\cm} and a phonon wavelength of less than \SI{1}{\nm}. Thus, this deviation is challenging to probe in typical optical experiments. However it means that for the monolayer, the range of accessible phonon polaritonic frequencies for optical applications is reduced compared to thick films. Finally, while we have focused on anomalies between the atomically-thin limit of bulk and a true monolayer, a comparison of the monolayer with the fundamental phonon polariton mode of the one-atom-thick thin film suggests that we have a reasonable qualitative understanding of the monolayer dispersion from this limit. 
+%\comment{tc}{Isn't this a bit strange to discuss, given that our results do not really show this (since we are sticking to the local case? This is only a feature in \citet{sohier2016two} results?}
+%Another anomaly between 2D and 3D is that the dispersion relation of the 2D LO phonon is non-monotonic, and the frequency starts to decrease for sufficiently large wavevector. This can never happen by extrapolating to a monolayer a dielectric function which has finite LO--TO splitting. This turn-back point corresponds to a frequency of around \SI{1500}{\per\cm} and a phonon wavelength of less than \SI{1}{\nm}. Thus, this deviation is challenging to probe in typical optical experiments. However it means that for the monolayer, the range of accessible phonon polaritonic frequencies for optical applications is reduced compared to thick films. 
+
+While we have focused on anomalies between the atomically-thin limit of bulk and a true monolayer, a comparison of the monolayer with the fundamental phonon polariton mode of the one-atom-thick thin film suggests that we have a reasonable qualitative understanding of the monolayer dispersion from the one-atom-thick thin film. 
 %
 \addition{%
 This qualitative similarity is to be somewhat expected, as a 2D layer can be considered as a very thin film of bulk material, provided that the microscopic properties of the bulk and monolayer do not deviate substantially. 
